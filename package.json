@@ -1,0 +1,19 @@
+{
+  "name": "sele",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js --reporter mocha-junit-reporter"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha-junit-reporter": "^2.0.2",
+    "selenium-webdriver": "^4.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
+}
