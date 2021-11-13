@@ -18,10 +18,10 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    npm mocha
-    npm install mocha-junit-reporter
-    cd Libreria
-    ng serve
-    cd server
-    nodemon server.js
+    npx mocha --timeout 42000
   displayName: 'npm install and build'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Ejecutando pruebas'
