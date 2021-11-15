@@ -24,8 +24,8 @@ steps:
     npm install mocha-junit-reporter --save-dev
     npx mocha --timeout 42000
     npm install
-    npm start
     nodemon
+    npm start
   displayName: 'npm install and build'
 - task: PublishTestResults@2
   inputs:
