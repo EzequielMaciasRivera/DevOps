@@ -4,16 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test": "mocha test.js --reporter mocha-junit-reporter --reporter-options mochaFile=./TEST.xml"
+     "test": "mocha test.js --reporter mocha-junit-reporter --reporter-options mochaFile=./TEST.xml"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mocha-junit-reporter": "^2.0.2",
     "selenium-webdriver": "^4.0.0"
-  },
-  "devDependencies": {
-    "mocha": "^9.1.3"
   }
 }
