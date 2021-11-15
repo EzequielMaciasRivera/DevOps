@@ -17,15 +17,12 @@ steps:
 
 - script: |
     npm install -g @angular/cli
-    npm install --only=dev
-    ng build --prod
-    npm install nodemon
     mocha test.js --reporter mocha-junit-reporter
     npm install mocha-junit-reporter --save-dev
     npx mocha --timeout 42000
-    npm install
-    nodemon
-    npm start
+    ng test
+    ng lint
+    ng build
   displayName: 'npm install and build'
 - task: PublishTestResults@2
   inputs:
