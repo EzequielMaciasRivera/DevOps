@@ -7,28 +7,27 @@ trigger:
 - main
 
 pool:
-  vmImage: windows-latest
+  vmImage: ubuntu-latest
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '14.x'
+    versionSpec: '14.16'
   displayName: 'Install Node.js'
   
 
 - script: |
-    npm install -g @angular/cli
+    npm install chromedriver
+    npm install geckodriver
+    npm install selenium-webdriver
+    npm install mocha
     npm install
-    ng build
-    mocha test.js --reporter mocha-junit-reporter
     npm install mocha-junit-reporter --save-dev
-    npx mocha --timeout 42000
-    ng test
-    ng lint
+    npm run test
   displayName: 'npm install and build'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: './TEST.xml'
     testRunTitle: 'Ejecutando pruebas'
 
