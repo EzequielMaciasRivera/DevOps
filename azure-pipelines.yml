@@ -24,6 +24,7 @@ steps:
     npm install
     npm install mocha-junit-reporter --save-dev
     npm run test
+  displayName: 'pruba'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
