@@ -18,6 +18,7 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install --only=dev
+    ng build --prod
     npm install nodemon
     mocha test.js --reporter mocha-junit-reporter
     npm install mocha-junit-reporter --save-dev
