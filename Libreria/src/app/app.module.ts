@@ -35,6 +35,7 @@ import {environment} from '../environments/environment';
 import { ModificarComponent } from './modificar/modificar.component';
 import { MessageComponent } from './message/message.component';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
+import { VendidosComponent } from './vendidos/vendidos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { BienvenidaComponent } from './bienvenida/bienvenida.component';
     UploadComponent,
     ModificarComponent,
     MessageComponent,
-    BienvenidaComponent
+    BienvenidaComponent,
+    VendidosComponent
     
     
   ],
