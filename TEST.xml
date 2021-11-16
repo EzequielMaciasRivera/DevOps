@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.0100" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2021-11-16T00:55:42" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Prueba de Login" timestamp="2021-11-16T00:55:42" tests="1" file="C:\GIT\GPDS\Nueva carpeta\DevOps\test.js" time="0.0060" failures="0">
+    <testcase name="Prueba de Login Prueba de ingreso correcto" time="0.0030" classname="Prueba de ingreso correcto">
+    </testcase>
+  </testsuite>
+</testsuites>

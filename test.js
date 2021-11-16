@@ -11,7 +11,6 @@ describe('Prueba de Login', function (){
       try {
         await assert.equal(true,true);
       } finally {
-        await driver.quit();
         
     }
     })  
