@@ -18,7 +18,7 @@ steps:
 - task: FtpUpload@2
   inputs:
     credentialsOption: 'inputs'
-    serverUrl: 'http//devops.freevar.com'
+    serverUrl: 'ftp://devops.freevar.com'
     username: 'devops.freevar.com'
     password: 'b8db78d9'
     rootDirectory: 'Libreria/src'
