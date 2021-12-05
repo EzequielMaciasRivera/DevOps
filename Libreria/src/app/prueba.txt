@@ -1,0 +1,1 @@
+Ejecución de pipeline con conexión a ftp
