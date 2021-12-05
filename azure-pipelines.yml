@@ -47,4 +47,4 @@ steps:
     cliSources: 'Libreria'
 - task: SonarCloudPublish@1
   inputs:
-    pollingTimeoutSec: '600'
+    pollingTimeoutSec: '5'
