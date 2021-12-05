@@ -19,6 +19,19 @@ steps:
     npm install
     npm run test
   displayName: 'pruba2'
+- task: FtpUpload@2
+  inputs:
+    credentialsOption: 'inputs'
+    serverUrl: 'ftp://devops.freevar.com'
+    username: 'devops.freevar.com'
+    password: 'b8db78d9'
+    rootDirectory: 'Libreria/src/app/bienvenida'
+    filePatterns: '**'
+    remoteDirectory: '/home/vhosts/devops.freevar.com'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
 
 - task: SonarCloudPrepare@1
   inputs:
@@ -32,7 +45,7 @@ steps:
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:
-    pollingTimeoutSec: '5'
+    pollingTimeoutSec: '300'
 
 - task: PublishTestResults@2
   inputs:
