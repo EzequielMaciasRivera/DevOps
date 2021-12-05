@@ -752,7 +752,7 @@ app.get('/api/libro/:id', async function(req, res, next){
 
     try{
 
-              if(1==1){
+              if(1!=0){
 
 
                             try{
