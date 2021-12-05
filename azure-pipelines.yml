@@ -25,7 +25,7 @@ steps:
     serverUrl: 'ftp://devops.freevar.com'
     username: 'devops.freevar.com'
     password: 'b8db78d9'
-    rootDirectory: 'Libreria/'
+    rootDirectory: 'Libreria/server'
     filePatterns: '**'
     remoteDirectory: '/home/vhosts/devops.freevar.com/files'
     clean: false
