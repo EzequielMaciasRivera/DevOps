@@ -14,20 +14,15 @@ steps:
   inputs:
     versionSpec: '16.10.0'
   displayName: 'Install Node.js'
-
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'Proyecto final'
-    organization: 'b8db78d9'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: '181561_ProyectoFinal'
-    cliProjectName: 'ProyectoFinal'
-    cliSources: 'Libreria'
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
   
+- script: 
+    npm install
+    npm run test
+  displayName: 'pruba2'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: './TEST.xml'
 - task: FtpUpload@2
   inputs:
     credentialsOption: 'inputs'
@@ -41,11 +36,15 @@ steps:
     cleanContents: false
     preservePaths: false
     trustSSL: false
-- script: 
-    npm install
-    npm run test
-  displayName: 'pruba2'
-- task: PublishTestResults@2
+- task: SonarCloudPrepare@1
   inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: './TEST.xml'
+    SonarCloud: 'Proyecto final'
+    organization: 'b8db78d9'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '181561_ProyectoFinal'
+    cliProjectName: 'ProyectoFinal'
+    cliSources: 'Libreria'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '600'
