@@ -17,11 +17,13 @@ steps:
   
 - task: FtpUpload@2
   inputs:
-    credentialsOption: 'serviceEndpoint'
-    serverEndpoint: 'con ftp'
+    credentialsOption: 'inputs'
+    serverUrl: 'http//devops.freevar.com'
+    username: 'devops.freevar.com'
+    password: 'b8db78d9'
     rootDirectory: 'Libreria/src'
     filePatterns: '**'
-    remoteDirectory: '/upload/$(Build.BuildId)/'
+    remoteDirectory: '/home/vhosts/devops.freevar.com'
     clean: false
     cleanContents: false
     preservePaths: false
