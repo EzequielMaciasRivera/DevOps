@@ -14,6 +14,19 @@ steps:
   inputs:
     versionSpec: '16.10.0'
   displayName: 'Install Node.js'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Proyecto final'
+    organization: 'b8db78d9'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '181561_ProyectoFinal'
+    cliProjectName: 'ProyectoFinal'
+    cliSources: 'Libreria'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
   
 - task: FtpUpload@2
   inputs:
