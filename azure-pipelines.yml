@@ -7,18 +7,32 @@ trigger:
 - main
 
 pool:
-  vmImage: windows-latest
+  vmImage: ubuntu-latest
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '14.x'
+    versionSpec: '16.10.0'
   displayName: 'Install Node.js'
-
-- script: |
-    npm install -g @angular/cli
+  
+- task: FtpUpload@2
+  inputs:
+    credentialsOption: 'inputs'
+    serverUrl: 'ftp://devops.freevar.com'
+    username: 'devops.freevar.com'
+    password: 'b8db78d9'
+    rootDirectory: 'Libreria/src'
+    filePatterns: '**'
+    remoteDirectory: '/home/vhosts/devops.freevar.com'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
+- script: 
     npm install
-    mocha test.js --reporter mocha-junit-reporter
-    npm install mocha-junit-reporter --save-dev
-    ng build --prod
-  displayName: 'npm install and build'
+    npm run test
+  displayName: 'pruba2'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: './TEST.xml'
