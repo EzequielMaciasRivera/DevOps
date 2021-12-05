@@ -19,20 +19,20 @@ steps:
     npm install
     npm run test
   displayName: 'pruba2'
-
 - task: FtpUpload@2
   inputs:
     credentialsOption: 'inputs'
     serverUrl: 'ftp://devops.freevar.com'
     username: 'devops.freevar.com'
     password: 'b8db78d9'
-    rootDirectory: '$(Build.ArtifactStagingDirectory)/Libreria/server'
+    rootDirectory: 'Libreria/server'
     filePatterns: '**'
-    remoteDirectory: '/home/vhosts/devops.freevar.com'
+    remoteDirectory: '/home/vhosts/devops.freevar.com/files'
     clean: false
     cleanContents: false
     preservePaths: false
     trustSSL: false
+
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'Proyecto final'
@@ -51,7 +51,3 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: './TEST.xml'
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: drop
