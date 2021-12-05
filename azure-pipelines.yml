@@ -19,7 +19,7 @@ steps:
   inputs:
     credentialsOption: 'serviceEndpoint'
     serverEndpoint: 'con ftp'
-    rootDirectory: '$(Build.ArtifactStagingDirectory)/Libreria/src'
+    rootDirectory: 'Libreria/src'
     filePatterns: '**'
     remoteDirectory: '/upload/$(Build.BuildId)/'
     clean: false
