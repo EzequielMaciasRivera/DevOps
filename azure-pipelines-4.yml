@@ -1,0 +1,57 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.10.0'
+  displayName: 'Install Node.js'
+  
+- script: 
+    npm install
+    npm run test
+  displayName: 'pruba2'
+- task: FtpUpload@2
+  inputs:
+    credentialsOption: 'inputs'
+    serverUrl: 'ftp://devops.freevar.com'
+    username: 'devops.freevar.com'
+    password: 'b8db78d9'
+    rootDirectory: 'Libreria/server'
+    filePatterns: '**'
+    remoteDirectory: '/home/vhosts/devops.freevar.com/files'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Proyecto final'
+    organization: 'b8db78d9'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '181561_ProyectoFinal'
+    cliProjectName: 'ProyectoFinal'
+    cliSources: 'Libreria'
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: './TEST.xml'
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: Artefacto Libreria
